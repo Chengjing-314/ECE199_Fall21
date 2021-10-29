@@ -98,34 +98,30 @@ int main(){
  
     si->setup();
 
-    // Set our robot's starting state to be the bottom-left corner of
-    // the environment, or (0,0).
+   
     ob::ScopedState<> start(space);
     start->as<ob::RealVectorStateSpace::StateType>()->values[0] = 3;
     start->as<ob::RealVectorStateSpace::StateType>()->values[1] = 85;
     
-    // Set our robot's goal state to be the top-right corner of the
-    // environment, or (1,1).
+   
     ob::ScopedState<> goal(space);
     goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = 75.0;
     goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = 32.0;
 
     
-    // Create a problem instance
+    
     ob::ProblemDefinitionPtr pdef(new ob::ProblemDefinition(si));
     
-    // Set the start and goal states
+   
     pdef->setStartAndGoalStates(start, goal);
 
-    // Construct our optimizing planner using the RRTstar algorithm.
+
     ob::PlannerPtr optimizingPlanner(new og::RRTstar(si));
-    
-    // Set the problem instance for our planner to solve
+   
     optimizingPlanner->setProblemDefinition(pdef);
     optimizingPlanner->setup();
     
-    // attempt to solve the planning problem within one second of
-    // planning time
+    
     ob::PlannerStatus solved = optimizingPlanner->solve(80);
 
     std::cout <<"Solve Status:"<< bool(solved) << std::endl;
