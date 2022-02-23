@@ -9,7 +9,7 @@ and **goal(space)**.
 
 **Note**: If you are compiling the code yourself, note that it might take 30sec to 1min to compile. 
   
-The two c++ file was compiled on Ubuntu 20.04, to run it and out.txt file will begenerated: 
+The two c++ output files were compiled on Ubuntu 20.04, after running it, an out.txt file will begenerated for visualization: 
 ```bash
 ./Maze_Planning_NO_Reg
 ```
